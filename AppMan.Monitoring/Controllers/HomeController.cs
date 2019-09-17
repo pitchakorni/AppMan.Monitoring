@@ -26,7 +26,7 @@ namespace AppMan.Monitoring.Controllers
 
             ramCounter = new PerformanceCounter("Memory", "Available MBytes");
 
-            @ViewData["RAMcurrent"] = ramCounter.NextValue() + "MB";
+            @ViewData["RAMavailable"] = ramCounter.NextValue() + "MB";
             @ViewData["CPUcurrent"] = cpuCounter.NextValue() + "%";
 
             //ViewData["DriveCInfo"] = string.Format("{0} Total : {1}  Used : {2}  Free : {3}", Drive.Name, ConvertLongToStringZero(Drive.TotalSize), ConvertLongToStringZero(Drive.TotalSize - Drive.TotalFreeSpace), ConvertLongToStringZero(Drive.TotalFreeSpace));

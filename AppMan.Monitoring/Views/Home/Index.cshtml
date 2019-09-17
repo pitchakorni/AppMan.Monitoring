@@ -1,28 +1,36 @@
 ﻿@model AppMan.Monitoring.Models.Drive
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+You could do the same in MVC:
+
 <script type="text/javascript">
-    setInterval("$('#_recentfive').load('controllername/actionmethod')",2000);
+    function timedRefresh(timeoutPeriod) {
+        setTimeout(function () {
+            location.reload(true);
+        }, timeoutPeriod);
+    }
 </script>
+
 @{
     ViewData["Title"] = "Home Page";
     var drivec = @ViewData["DriveC"] as Drive;
+
 }
+<body onload="JavaScript:timedRefresh(5000);">
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 
-    <br>
+        <br>
 
-    <drivec>
-        @drivec.Name<br>
-        Total : @drivec.TotalSize.ToString("N0") Bytes  @((drivec.TotalSize / 1000000).ToString("N0")) MB  @((drivec.TotalSize / 1000000000).ToString("N0")) GB<br>
-        Used : @drivec.TotalUsedSpace.ToString("N0") Bytes  @((drivec.TotalUsedSpace / 1000000).ToString("N0")) MB  @((drivec.TotalUsedSpace / 1000000000).ToString("N0")) GB<br>
-        Free : @drivec.TotalFreeSpace.ToString("N0") Bytes  @((drivec.TotalFreeSpace / 1000000).ToString("N0")) MB  @((drivec.TotalFreeSpace / 1000000000).ToString("N0")) GB<br>
-    </drivec>
+        <drivec>
+            @drivec.Name<br>
+            Total : @drivec.TotalSize.ToString("N0") Bytes  @((drivec.TotalSize / 1000000).ToString("N0")) MB  @((drivec.TotalSize / 1000000000).ToString("N0")) GB<br>
+            Used : @drivec.TotalUsedSpace.ToString("N0") Bytes  @((drivec.TotalUsedSpace / 1000000).ToString("N0")) MB  @((drivec.TotalUsedSpace / 1000000000).ToString("N0")) GB<br>
+            Free : @drivec.TotalFreeSpace.ToString("N0") Bytes  @((drivec.TotalFreeSpace / 1000000).ToString("N0")) MB  @((drivec.TotalFreeSpace / 1000000000).ToString("N0")) GB<br>
+        </drivec>
 
-    RAM Available : @ViewData["RAMcurrent"]
-    CPU : @ViewData["CPUcurrent"]
+        RAM Available : @ViewData["RAMavailable"]
+        CPU : @ViewData["CPUcurrent"]
 
-</div>
-
+    </div>
+</body>

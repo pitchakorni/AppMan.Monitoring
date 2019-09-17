@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "0669c0c3404a70b3601e8c7079036bdde7616bf2"
+    "signature": "87e9bd16d5a14715db42bc109f2940f8942354b9"
   },
   "compilationOptions": {
     "defines": [
@@ -31,7 +31,6 @@
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
           "Microsoft.NETCore.App": "2.2.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.2.3",
-          "NEST": "7.3.0",
           "System.Diagnostics.PerformanceCounter": "4.5.0"
         },
         "runtime": {
@@ -106,23 +105,6 @@
         },
         "compile": {
           "lib/netstandard2.0/HealthChecks.UI.Client.dll": {}
-        }
-      },
-      "Elasticsearch.Net/7.3.0": {
-        "dependencies": {
-          "System.Buffers": "4.5.0",
-          "System.Diagnostics.DiagnosticSource": "4.5.1",
-          "System.Reflection.Emit": "4.3.0",
-          "System.Reflection.Emit.Lightweight": "4.3.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Elasticsearch.Net.dll": {
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.3.0.0"
-          }
-        },
-        "compile": {
-          "lib/netstandard2.0/Elasticsearch.Net.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Core/5.2.3": {
@@ -359,20 +341,6 @@
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll": {}
-        }
-      },
-      "NEST/7.3.0": {
-        "dependencies": {
-          "Elasticsearch.Net": "7.3.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Nest.dll": {
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.3.0.0"
-          }
-        },
-        "compile": {
-          "lib/netstandard2.0/Nest.dll": {}
         }
       },
       "NuGet.Frameworks/4.7.0": {
@@ -641,11 +609,6 @@
             "assemblyVersion": "4.0.1.0",
             "fileVersion": "4.6.26515.6"
           }
-        }
-      },
-      "System.Diagnostics.DiagnosticSource/4.5.1": {
-        "compile": {
-          "lib/netstandard1.3/System.Diagnostics.DiagnosticSource.dll": {}
         }
       },
       "System.Diagnostics.PerformanceCounter/4.5.0": {
@@ -1141,7 +1104,7 @@
           "Microsoft.Extensions.FileProviders.Physical": "2.2.0",
           "Microsoft.Extensions.Logging.Abstractions": "2.2.0",
           "Microsoft.Extensions.Options": "2.2.0",
-          "System.Diagnostics.DiagnosticSource": "4.5.1",
+          "System.Diagnostics.DiagnosticSource": "4.5.0",
           "System.Reflection.Metadata": "1.6.0"
         },
         "compile": {
@@ -1202,7 +1165,7 @@
           "Microsoft.Extensions.Hosting.Abstractions": "2.2.0",
           "Microsoft.Extensions.Logging": "2.2.0",
           "Microsoft.Extensions.Options": "2.2.0",
-          "System.Diagnostics.DiagnosticSource": "4.5.1",
+          "System.Diagnostics.DiagnosticSource": "4.5.0",
           "System.Reflection.Metadata": "1.6.0"
         },
         "compile": {
@@ -1409,7 +1372,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.Hosting.Abstractions": "2.2.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "2.2.0",
-          "System.Diagnostics.DiagnosticSource": "4.5.1"
+          "System.Diagnostics.DiagnosticSource": "4.5.0"
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.AspNetCore.MiddlewareAnalysis.dll": {}
@@ -1474,7 +1437,7 @@
           "Microsoft.Extensions.DependencyModel": "2.1.0",
           "Microsoft.Extensions.FileProviders.Abstractions": "2.2.0",
           "Microsoft.Extensions.Logging.Abstractions": "2.2.0",
-          "System.Diagnostics.DiagnosticSource": "4.5.1",
+          "System.Diagnostics.DiagnosticSource": "4.5.0",
           "System.Threading.Tasks.Extensions": "4.5.1"
         },
         "compile": {
@@ -2049,7 +2012,7 @@
           "Remotion.Linq": "2.2.0",
           "System.Collections.Immutable": "1.5.0",
           "System.ComponentModel.Annotations": "4.5.0",
-          "System.Diagnostics.DiagnosticSource": "4.5.1",
+          "System.Diagnostics.DiagnosticSource": "4.5.0",
           "System.Interactive.Async": "3.2.0"
         },
         "compile": {
@@ -2277,7 +2240,7 @@
       },
       "Microsoft.Extensions.DiagnosticAdapter/2.2.0": {
         "dependencies": {
-          "System.Diagnostics.DiagnosticSource": "4.5.1"
+          "System.Diagnostics.DiagnosticSource": "4.5.0"
         },
         "compile": {
           "lib/netcoreapp2.0/Microsoft.Extensions.DiagnosticAdapter.dll": {}
@@ -2691,6 +2654,7 @@
           "ref/netcoreapp2.2/System.Data.dll": {},
           "ref/netcoreapp2.2/System.Diagnostics.Contracts.dll": {},
           "ref/netcoreapp2.2/System.Diagnostics.Debug.dll": {},
+          "ref/netcoreapp2.2/System.Diagnostics.DiagnosticSource.dll": {},
           "ref/netcoreapp2.2/System.Diagnostics.FileVersionInfo.dll": {},
           "ref/netcoreapp2.2/System.Diagnostics.Process.dll": {},
           "ref/netcoreapp2.2/System.Diagnostics.StackTrace.dll": {},
@@ -3074,6 +3038,9 @@
         },
         "compileOnly": true
       },
+      "System.Diagnostics.DiagnosticSource/4.5.0": {
+        "compileOnly": true
+      },
       "System.Diagnostics.FileVersionInfo/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.2.0",
@@ -3285,7 +3252,7 @@
           "Microsoft.NETCore.Platforms": "2.2.0",
           "System.Collections": "4.3.0",
           "System.Diagnostics.Debug": "4.3.0",
-          "System.Diagnostics.DiagnosticSource": "4.5.1",
+          "System.Diagnostics.DiagnosticSource": "4.5.0",
           "System.Diagnostics.Tracing": "4.3.0",
           "System.Globalization": "4.3.0",
           "System.Globalization.Extensions": "4.3.0",
@@ -3929,13 +3896,6 @@
       "path": "aspnetcore.healthchecks.ui.client/2.2.4",
       "hashPath": "aspnetcore.healthchecks.ui.client.2.2.4.nupkg.sha512"
     },
-    "Elasticsearch.Net/7.3.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-k+bNhjqYrexiwJsZjGaooft5FtIW9KmUQWn5AGsdbnXVfiuEQ5vQ+9TdRObyNiGTY0WW7a0zNpDjqnvC1E45og==",
-      "path": "elasticsearch.net/7.3.0",
-      "hashPath": "elasticsearch.net.7.3.0.nupkg.sha512"
-    },
     "Microsoft.AspNet.WebApi.Core/5.2.3": {
       "type": "package",
       "serviceable": true,
@@ -4048,13 +4008,6 @@
       "path": "microsoft.visualstudio.web.codegenerators.mvc/2.2.3",
       "hashPath": "microsoft.visualstudio.web.codegenerators.mvc.2.2.3.nupkg.sha512"
     },
-    "NEST/7.3.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-RabHLCzGpYiYD2TGM1ihtb8gVqIVjUAQmHeTGAo6u1rJQNfukV0LFpKIcINbIahsGqqCW3pGG/NmfAXW4oKycA==",
-      "path": "nest/7.3.0",
-      "hashPath": "nest.7.3.0.nupkg.sha512"
-    },
     "NuGet.Frameworks/4.7.0": {
       "type": "package",
       "serviceable": true,
@@ -4152,13 +4105,6 @@
       "sha512": "sha512-UIFvaFfuKhLr9u5tWMxmVoDPkFeD+Qv8gUuap4aZgVGYSYMdERck4OhLN/2gulAc0nYTEigWXSJNNWshrmxnng==",
       "path": "system.configuration.configurationmanager/4.5.0",
       "hashPath": "system.configuration.configurationmanager.4.5.0.nupkg.sha512"
-    },
-    "System.Diagnostics.DiagnosticSource/4.5.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-zCno/m44ymWhgLFh7tELDG9587q0l/EynPM0m4KgLaWQbz/TEKvNRX2YT5ip2qXW/uayifQ2ZqbnErsKJ4lYrQ==",
-      "path": "system.diagnostics.diagnosticsource/4.5.1",
-      "hashPath": "system.diagnostics.diagnosticsource.4.5.1.nupkg.sha512"
     },
     "System.Diagnostics.PerformanceCounter/4.5.0": {
       "type": "package",
@@ -5629,6 +5575,13 @@
       "sha512": "sha512-ZUhUOdqmaG5Jk3Xdb8xi5kIyQYAA4PnTNlHx1mu9ZY3qv4ELIdKbnL/akbGaKi2RnNUWaZsAs31rvzFdewTj2g==",
       "path": "system.diagnostics.debug/4.3.0",
       "hashPath": "system.diagnostics.debug.4.3.0.nupkg.sha512"
+    },
+    "System.Diagnostics.DiagnosticSource/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-eIHRELiYDQvsMToML81QFkXEEYXUSUT2F28t1SGrevWqP+epFdw80SyAXIKTXOHrIEXReFOEnEr7XlGiC2GgOg==",
+      "path": "system.diagnostics.diagnosticsource/4.5.0",
+      "hashPath": "system.diagnostics.diagnosticsource.4.5.0.nupkg.sha512"
     },
     "System.Diagnostics.FileVersionInfo/4.3.0": {
       "type": "package",
