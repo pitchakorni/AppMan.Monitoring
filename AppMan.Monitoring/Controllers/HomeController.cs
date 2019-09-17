@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using AppMan.Monitoring.Models;
 using System.IO;
+using System.Threading;
+using System.Runtime.InteropServices;
 
-namespace AppMan.Monitoring.Controllers
+namespace AppMan.Monitoring.Controllers 
 {
     public class HomeController : Controller
     {
@@ -15,20 +17,17 @@ namespace AppMan.Monitoring.Controllers
         {
             DriveInfo Drive = new DriveInfo("c");
 
-            PerformanceCounter cpuCounter;
-            PerformanceCounter ramCounter;
+            PerformanceCounter cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
+            PerformanceCounter ramCounter = new PerformanceCounter("Memory", "Available MBytes");
 
-            cpuCounter = new PerformanceCounter();
-
-            cpuCounter.CategoryName = "Processor";
-            cpuCounter.CounterName = "% Processor Time";
-            cpuCounter.InstanceName = "_Total";
-
-            ramCounter = new PerformanceCounter("Memory", "Available MBytes");
-
-            @ViewData["RAMavailable"] = ramCounter.NextValue() + "MB";
-            @ViewData["CPUcurrent"] = cpuCounter.NextValue() + "%";
-
+            int usage = (int)cpuCounter.NextValue();
+            while (usage == 0 || usage > 80)
+            {
+                Thread.Sleep(250);
+                usage = (int)cpuCounter.NextValue();
+            }
+            @ViewData["RAMavailable"] = ramCounter.NextValue() + " MB";
+            @ViewData["CPUcurrent"] = usage + " %";
             //ViewData["DriveCInfo"] = string.Format("{0} Total : {1}  Used : {2}  Free : {3}", Drive.Name, ConvertLongToStringZero(Drive.TotalSize), ConvertLongToStringZero(Drive.TotalSize - Drive.TotalFreeSpace), ConvertLongToStringZero(Drive.TotalFreeSpace));
             @ViewData["DriveC"] = new Drive()
             {
@@ -49,11 +48,6 @@ namespace AppMan.Monitoring.Controllers
         public IActionResult HealthCheck()
         {
             return View();
-        }
-
-        public string ConvertLongToStringZero(long num)
-        {
-            return num.ToString("N0") + " Bytes";
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

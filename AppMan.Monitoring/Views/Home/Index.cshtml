@@ -1,6 +1,5 @@
 ﻿@model AppMan.Monitoring.Models.Drive
-You could do the same in MVC:
-
+@using Kendo.Mvc.UI
 <script type="text/javascript">
     function timedRefresh(timeoutPeriod) {
         setTimeout(function () {
@@ -22,15 +21,66 @@ You could do the same in MVC:
 
         <br>
 
-        <drivec>
-            @drivec.Name<br>
-            Total : @drivec.TotalSize.ToString("N0") Bytes  @((drivec.TotalSize / 1000000).ToString("N0")) MB  @((drivec.TotalSize / 1000000000).ToString("N0")) GB<br>
-            Used : @drivec.TotalUsedSpace.ToString("N0") Bytes  @((drivec.TotalUsedSpace / 1000000).ToString("N0")) MB  @((drivec.TotalUsedSpace / 1000000000).ToString("N0")) GB<br>
-            Free : @drivec.TotalFreeSpace.ToString("N0") Bytes  @((drivec.TotalFreeSpace / 1000000).ToString("N0")) MB  @((drivec.TotalFreeSpace / 1000000000).ToString("N0")) GB<br>
-        </drivec>
+        @drivec.Name<br>
+        Total : @drivec.TotalSize.ToString("N0") Bytes  @((drivec.TotalSize / 1000000).ToString("N0")) MB  @((drivec.TotalSize / 1000000000).ToString("N0")) GB<br>
+        Used : @drivec.TotalUsedSpace.ToString("N0") Bytes  @((drivec.TotalUsedSpace / 1000000).ToString("N0")) MB  @((drivec.TotalUsedSpace / 1000000000).ToString("N0")) GB<br>
+        Free : @drivec.TotalFreeSpace.ToString("N0") Bytes  @((drivec.TotalFreeSpace / 1000000).ToString("N0")) MB  @((drivec.TotalFreeSpace / 1000000000).ToString("N0")) GB<br>
 
         RAM Available : @ViewData["RAMavailable"]
         CPU : @ViewData["CPUcurrent"]
 
+        <style>
+            #chart {
+                background: center no-repeat url('@Url.Content("~/Content/shared/world-map.png")');
+            }
+        </style>
     </div>
 </body>
+
+@(Html.Kendo().Chart()
+    .Name("chart")
+    .ChartArea(chartArea => chartArea
+        .Background("transparent"))
+    .Title(title => title
+        .Text("Share of Internet Population Growth")
+        .Position(ChartTitlePosition.Bottom)
+    )
+    .Legend(legend => legend
+        .Visible(false)
+    )
+    .SeriesDefaults(series =>
+        series.Donut().StartAngle(150)
+    )
+    .Series(series =>
+    {
+        series.Donut(new dynamic[] {
+            new {category = "Asia",value = 30.8,color = "#9de219"},
+            new {category = "Europe",value = 21.1,color = "#90cc38"},
+            new {category = "Latin America",value = 16.3,color = "#068c35"},
+            new {category = "Africa",value = 17.6,color = "#006634"},
+            new {category = "Middle East",value = 9.2,color = "#004d38"},
+            new {category = "North America",value = 4.6,color = "#033939"}
+        })
+        .Name("2011");
+
+        series.Donut(new dynamic[] {
+            new {category = "Asia",value = 53.8,color = "#9de219"},
+            new {category = "Europe",value = 16.1,color = "#90cc38"},
+            new {category = "Latin America",value = 11.3,color = "#068c35"},
+            new {category = "Africa",value = 9.6,color = "#006634"},
+            new {category = "Middle East",value = 5.2,color = "#004d38"},
+            new {category = "North America",value = 3.6,color = "#033939"}
+        })
+        .Name("2012")
+        .Labels(labels => labels
+            .Visible(true)
+            .Position(ChartPieLabelsPosition.OutsideEnd)
+            .Template("#= category #: \n #= value#%")
+            .Background("transparent")
+        );
+    })
+    .Tooltip(tooltip => tooltip
+        .Visible(true)
+        .Template("#= category # (#= series.name #): #= value #%")
+    )
+)
